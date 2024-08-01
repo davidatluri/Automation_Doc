@@ -1,0 +1,66 @@
+                         DEMO PROJECT
+
+Using Jenkins Code for Pipeline Automation
+
+Introduction: This document outlines the process by which the automation team can utilize code written by the Jenkins team to automate a continuous integration/continuous deployment (CI/CD) pipeline. Jenkins, an open-source automation server, facilitates this by enabling reliable and efficient automation of build, test, and deployment processes.
+
+Roles and Responsibilities
+
+1.	Jenkins Team:
+⦁	Develop and Maintain Jenkins Pipelines: Write and maintain Develop Jenkinsfiles and scripts that define the CI/CD pipeline stages.
+2.	Automation Team:
+⦁	Utilize Jenkins Pipelines: Use the provided Jenkins pipelines to automate build, test, and deployment processes.
+⦁	Customize and Extend Pipelines: Adapt and extend the Jenkins pipelines as needed to fit specific project requirements.
+⦁	Monitor and Maintain Automation: Ensure the automated processes run smoothly and address any issues that arise during execution.
+⦁	Feedback and Improvement: Provide feedback to the Jenkins team for continuous improvement of the pipelines.
+
+SCRIPT:for development
+pipeline {
+    agent any
+    stages {
+        stage('clone') {
+            steps {
+                git 'https://github.com/SucharithaSathupalli01/Project-Development.git'
+            }
+        }
+    }
+}
+
+SCRIPT:for UAT phase
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+                git 'https://github.com/SucharithaSathupalli01/Project-UAT.git'
+            }
+        }
+    }
+}
+
+SCRIPT:For production phase
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+                git 'https://github.com/SucharithaSathupalli01/Project-Production.git'
+            }
+        }
+    }
+}
+
+
+Process Overview
+
+ Pipeline Execution:
+⦁	The automation team triggers the pipeline manually or sets up automatic triggers (e.g., on code commit) as per project requirements.
+⦁	Jenkins executes the defined stages (build, test, deploy) sequentially or in parallel as defined in the Jenkins file.
+⦁	 The automation team monitors the execution of the pipeline using Jenkins’ dashboard and logs.
+⦁	The automation team provides feedback on the pipeline’s performance and any challenges faced.
+
+
+The Jenkins team iteratively improves the pipeline based on this feedback, adding new features, optimizing performance, and fixing bugs.
+
